@@ -6,7 +6,7 @@
   <title>Mon Dex</title> -->
   <link rel="stylesheet" href="./dist/output.css">
 </head>
-<body class="bg-ground font-body text-ink">
+<body class="bg-ground font-body text-ink bg-[#F3F4F6] text-[]">
 
   <!-- ===================== EN-TÊTE ===================== -->
   <header class="flex-1 bg-[#EE1515] text-white">
@@ -54,7 +54,7 @@
     <div class="flex gap-8 items-start">
 
       <!-- ===================== GRILLE DES CRÉATURES ===================== -->
-      <section id="grid" aria-label="Créatures" class="grid min-w-60 flex-1 lg:grid-cols-3 gap-5">
+      <section id="grid" aria-label="Créatures" class="grid min-w-60 flex-1 lg:grid-cols-3 gap-5  overflow-hidden lg:h-full h-[1180px] overflow-y-auto ">
 
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
         <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
@@ -245,7 +245,7 @@
 
   </main>
 
-  <footer class=" mx-auto max-w-7xl px-8 pb-10 text-xl bg-red-500/95 text-muted align text-center py-8 ">
+  <footer class=" mx-auto w-full px-8 pb-10 text-xl  bg-red-500/95 text-muted align text-center py-8 ">
     <p >Images : [source des images de votre univers]. Projet de fans réalisé dans le cadre d'une formation.</p>  </footer>
 
   <!-- data.js (à créer) doit être chargé AVANT script.js -->
