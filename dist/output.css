@@ -657,6 +657,36 @@ video {
   display: grid;
 }
 
+.size-10 {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.size-11 {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.size-2 {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.size-24 {
+  width: 6rem;
+  height: 6rem;
+}
+
+.size-6 {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.size-60 {
+  width: 15rem;
+  height: 15rem;
+}
+
 .h-11 {
   height: 2.75rem;
 }
@@ -683,6 +713,38 @@ video {
 
 .h-6 {
   height: 1.5rem;
+}
+
+.h-52 {
+  height: 13rem;
+}
+
+.h-7 {
+  height: 1.75rem;
+}
+
+.h-32 {
+  height: 8rem;
+}
+
+.h-44 {
+  height: 11rem;
+}
+
+.h-60 {
+  height: 15rem;
+}
+
+.h-0 {
+  height: 0px;
+}
+
+.h-72 {
+  height: 18rem;
+}
+
+.h-64 {
+  height: 16rem;
 }
 
 .w-11 {
@@ -721,8 +783,16 @@ video {
   width: 100%;
 }
 
+.w-8 {
+  width: 2rem;
+}
+
 .min-w-0 {
   min-width: 0px;
+}
+
+.min-w-60 {
+  min-width: 15rem;
 }
 
 .max-w-7xl {
@@ -731,6 +801,14 @@ video {
 
 .max-w-md {
   max-width: 28rem;
+}
+
+.max-w-3 {
+  max-width: 0.75rem;
+}
+
+.max-w-full {
+  max-width: 100%;
 }
 
 .flex-1 {
@@ -878,6 +956,78 @@ video {
 
 .bg-white\/10 {
   background-color: rgb(255 255 255 / 0.1);
+}
+
+.bg-\[\] {
+  background-color: ;
+}
+
+.bg-\[\#\] {
+  background-color: #;
+}
+
+.bg-\[\#EE\] {
+  background-color: #EE;
+}
+
+.bg-\[\#EE1515\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 21 21 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[\#ffde\]\/10 {
+  background-color: rgb(255 255 221 / 0.1);
+}
+
+.bg-\[\#ffde00\]\/10 {
+  background-color: rgb(255 222 0 / 0.1);
+}
+
+.bg-\[\#FF00\]\/10 {
+  background-color: rgb(255 255 0 / 0.1);
+}
+
+.bg-\[\#FFDE00\]\/10 {
+  background-color: rgb(255 222 0 / 0.1);
+}
+
+.bg-yellow-400\/10 {
+  background-color: rgb(250 204 21 / 0.1);
+}
+
+.bg-yellow-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity, 1));
+}
+
+.bg-white\/5 {
+  background-color: rgb(255 255 255 / 0.05);
+}
+
+.bg-white\/50 {
+  background-color: rgb(255 255 255 / 0.5);
+}
+
+.bg-yellow-400\/50 {
+  background-color: rgb(250 204 21 / 0.5);
+}
+
+.bg-yellow-400\/80 {
+  background-color: rgb(250 204 21 / 0.8);
+}
+
+.bg-yellow-400\/90 {
+  background-color: rgb(250 204 21 / 0.9);
+}
+
+.bg-yellow-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 252 232 / var(--tw-bg-opacity, 1));
+}
+
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
 }
 
 .p-3 {
@@ -1036,9 +1186,93 @@ video {
   outline-offset: 2px;
 }
 
+@media (min-width: 640px) {
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:size-5 {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .sm\:size-1 {
+    width: 0.25rem;
+    height: 0.25rem;
+  }
+
+  .sm\:h-8 {
+    height: 2rem;
+  }
+
+  .sm\:h-6 {
+    height: 1.5rem;
+  }
+
+  .sm\:w-8 {
+    width: 2rem;
+  }
+
+  .sm\:w-6 {
+    width: 1.5rem;
+  }
+
+  .sm\:w-px {
+    width: 1px;
+  }
+
+  .sm\:w-full {
+    width: 100%;
+  }
+}
+
 @media (min-width: 768px) {
   .md\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:h-14 {
+    height: 3.5rem;
+  }
+
+  .md\:h-10 {
+    height: 2.5rem;
+  }
+
+  .md\:h-7 {
+    height: 1.75rem;
+  }
+
+  .md\:h-4 {
+    height: 1rem;
+  }
+
+  .md\:h-8 {
+    height: 2rem;
+  }
+
+  .md\:h-64 {
+    height: 16rem;
+  }
+
+  .md\:h-60 {
+    height: 15rem;
+  }
+
+  .md\:w-14 {
+    width: 3.5rem;
+  }
+
+  .md\:w-10 {
+    width: 2.5rem;
+  }
+
+  .md\:w-8 {
+    width: 2rem;
   }
 
   .md\:grid-cols-2 {
@@ -1051,7 +1285,47 @@ video {
     grid-column: span 4 / span 4;
   }
 
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:h-11 {
+    height: 2.75rem;
+  }
+
+  .lg\:h-14 {
+    height: 3.5rem;
+  }
+
+  .lg\:h-60 {
+    height: 15rem;
+  }
+
+  .lg\:h-0 {
+    height: 0px;
+  }
+
+  .lg\:h-40 {
+    height: 10rem;
+  }
+
+  .lg\:h-36 {
+    height: 9rem;
+  }
+
+  .lg\:w-11 {
+    width: 2.75rem;
+  }
+
+  .lg\:w-14 {
+    width: 3.5rem;
+  }
+
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
