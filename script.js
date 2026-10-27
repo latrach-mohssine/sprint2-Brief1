@@ -136,19 +136,19 @@ removeBtn.addEventListener("click", () => {
 // La liste se met à jour pendant la saisie d'un nom
 // (sans tenir compte des majuscules).
 // -------------------------------------------------------------
-let names = ""
-const searchinput = document.getElementById("search")
-searchinput.addEventListener("input", eva =>{
-  names = eva.target.value.toLowerCase()
-  const result = []
-  for(const nam of caracters){
+// let names = ""
+// const searchinput = document.getElementById("search")
+// searchinput.addEventListener("input", eva =>{
+//   names = eva.target.value.toLowerCase()
+//   const result = []
+//   for(const nam of caracters){
   
-    if(nam.name.toLowerCase().includes(names) === true){
-    result.push(nam)
-    }
-  }
-  displayCharacters(result)
-})
+//     if(nam.name.toLowerCase().includes(names) === true){
+//     result.push(nam)
+//     }
+//   }
+//   displayCharacters(result)
+// })
 // -------------------------------------------------------------
 // 4. FILTRE
 // Les boutons de type n'affichent que les créatures de ce type ;
@@ -156,15 +156,33 @@ searchinput.addEventListener("input", eva =>{
 // La recherche et le filtre fonctionnent ENSEMBLE.
 // -------------------------------------------------------------
 const filterCaracters = document.getElementById("filters")
-
+let typeSelected = "Tous"
 filterCaracters.addEventListener("click",eventfilter =>{
   const button = eventfilter.target.closest("button");
   if(!button || !filterCaracters.contains(button)) return;
-  const typeSelected = button.dataset.type;
-  console.log(typeSelected)
+   typeSelected = button.dataset.type;
+ typeSelected = button.dataset.type;
+
+updateCharacters();
+
 }
 )
+let names = ""
+const searchinput = document.getElementById("search")
 
+function updateCharacters() {
+  names = searchinput.value.toLowerCase();
+  const result = []
+  for(const nam of caracters){
+  
+   
+    if(nam.name.toLowerCase().includes(names) &&(typeSelected === "Tous" || nam.type === typeSelected)) {
+  result.push(nam);
+}
+  }
+  displayCharacters(result)
+}
+searchinput.addEventListener("input", updateCharacters);
 // -------------------------------------------------------------
 // 5. CRÉER UNE CRÉATURE
 // Validez chaque champ du formulaire avec une expression régulière
