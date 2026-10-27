@@ -155,7 +155,15 @@ searchinput.addEventListener("input", eva =>{
 // « Tous » réinitialise le filtre.
 // La recherche et le filtre fonctionnent ENSEMBLE.
 // -------------------------------------------------------------
+const filterCaracters = document.getElementById("filters")
 
+filterCaracters.addEventListener("click",eventfilter =>{
+  const button = eventfilter.target.closest("button");
+  if(!button || !filterCaracters.contains(button)) return;
+  const typeSelected = button.dataset.type;
+  console.log(typeSelected)
+}
+)
 
 // -------------------------------------------------------------
 // 5. CRÉER UNE CRÉATURE
