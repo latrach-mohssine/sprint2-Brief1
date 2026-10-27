@@ -38,7 +38,7 @@
         <label class="flex w-full max-w-md flex-col gap-1 text-sm font-bold  ">
           <p class="text-xl">Rechercher par nom</p>
          <div class=" flex relative  w-[505px]"> <input id="search" type="search" placeholder="ex. Mossling" class="flex-1 min-w-0 pl-20 field rounded-3xl font-normal ">
-          <button type="button" class=" absolute left-[358px] w-36 top-1/2 h-11 -translate-y-1/2 chip bg-blue-600 text-white border-ink shrink-0">Search</button>
+          <button type="button" class=" absolute left-[358px] w-36 top-1/2 h-10 -translate-y-1/2 rounded-3xl bg-blue-600 text-white  shrink-0">Search</button>
        </div> </label>
        
       </div>  <h1 class="font-display text-4xl font-extrabold">Trouver une créature</h1>
@@ -62,128 +62,72 @@
     <div class="flex gap-8 items-start">
 
       <!-- ===================== GRILLE DES CRÉATURES ===================== -->
-      <section id="grid" aria-label="Créatures" class="grid min-w-60 flex-1 lg:grid-cols-3 gap-5  overflow-hidden lg:h-full h-[1410px] overflow-y-auto rounded-3xl">
-
+      <section id="grid" aria-label="Créatures" class="grid min-w-60 flex-1 lg:grid-cols-3 gap-5  overflow-hidden lg:h-[1340px] h-[1410px] overflow-y-auto rounded-3xl">
+<div id="character-container" class="contents"></div>
+        <template id="character-template">
         <!-- Carte écrite à la main : à remplacer par des cartes générées en JS (Partie 2) -->
-        <article class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
-          <div class="relative flex lg:h-36 md:h-60 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
-            <span class="absolute left-3 top-2 font-mono lg:text-sm text-xl text-muted">#001</span>
+        <article class="transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg cursor-pointer flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
+           <a href="#detail">
+          <div  class="character-background relative flex lg:h-36 md:h-60 items-center justify-center rounded-xl mb-2 ">
+           <img class="character-image h-full w-full  object-contain" alt=""> <span class="character-id absolute left-3 top-2 font-mono lg:text-sm text-xl text-muted"></span>
           </div>
           <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-3xl lg:text-xl font-semibold">Emberkit</h3>
-            <span class="rounded-full bg-brand-light px-3 py-1 lg:text-sm text-xl font-bold text-ink">Feu</span>
+            <h3 class="character-name font-display text-3xl lg:text-xl font-semibold">Emberkit</h3>
+            <span class="bg-logo character-type rounded-full  px-3 py-1 lg:text-sm text-xl font-bold text-ink">Feu</span>
           </div>
-          <p class=" text-xl lg:text-sm text-muted">Base · Total 309</p>
+         </a> <p class=" character-level text-xl lg:text-sm text-muted">Base · Total 309</p>
           <button type="button" class="flex justify-center items-center border-black border-2 p-2  rounded-xl  lg:text-xl text-2xl">Ajouter à l'équipe</button>
         </article>
-
-       
+</template>
+         
       </section>
-
       <aside class="flex w-[420px] shrink-0 flex-col gap-6">
 
         <!-- ===================== PANNEAU DE DÉTAIL ===================== -->
-        <section id="detail" aria-label="Détail de la créature" class="flex flex-col gap-4 rounded-card border-2 border-ink bg-white p-6 ">
-          
+       <div id="p-detail">
+          <section id="detail" aria-label="Détail de la créature" class="flex flex-col gap-4 rounded-card border-2 border-ink  p-6 ">
+           
+            
           <div class="flex items-center justify-between">
-            <span class="font-mono text-xl lg:text-sm text-muted">#003 · Détail</span>
-            <button type="button" aria-label="Fermer le détail" class="btn-outline w-11 px-0 text-xl">✕</button>
+            <span id="detail-id" class=" font-mono text-xl lg:text-sm text-muted">#003 · Détail</span>
+            <button type="button" aria-label="Fermer le détail" id="detail-x" class="btn-outline w-11 px-0 text-xl">✕</button>
           </div>
-          <div class="flex h-48 items-center justify-center rounded-2xl bg-brand-light">
-            <svg aria-hidden="true" class="h-20 w-20 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
+          <div id="detai-bg-image" class="flex h-48 items-center justify-center rounded-2xl ">
+            <img id="detail-image" src="" class=" h-full w-full object-contain" alt="">
           </div>
           <div class="flex items-center justify-between">
-            <h2 class="font-display text-3xl font-extrabold">Mossling</h2>
-            <span class="rounded-full bg-brand-light px-3 py-1 lg:text-sm text-xl font-bold">Plante</span>
+            <h2 id="detail-name" class=" font-display text-3xl font-extrabold">Mossling</h2>
+            <span id="detail-type" class=" rounded-full bg-brand-light px-3 py-1 lg:text-sm text-xl font-bold">Plante</span>
           </div>
-          <p class="text-gray-700 lg:text-sm text-2xl">Une créature calme qui dort sous les feuilles mortes et se réveille quand il pleut.</p>
+          <p id="detail-text" class=" text-gray-700 lg:text-sm text-2xl">Une créature calme qui dort sous les feuilles mortes et se réveille quand il pleut.</p>
           <div class="flex flex-col gap-2 text-sm">
-            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold lg:text-sm text-xl">PV</span><span class="h-3 rounded-full bg-ground"><span class="block h-3 w-[30%] rounded-full bg-[#49cb68]"></span></span><span class="text-right font-mono lg:text-sm text-2xl">45</span></div>
-            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold lg:text-sm text-xl">Attaque</span><span class="h-3 rounded-full bg-ground"><span class="block h-3 w-[33%] rounded-full bg-[#FDD346]"></span></span><span class="text-right font-mono lg:text-sm text-2xl">49</span></div>
-            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold lg:text-sm text-xl">Défense</span><span class="h-3 rounded-full bg-ground"><span class="block h-3 w-[80%] rounded-full bg-[#419EFB]"></span></span><span class="text-right font-mono lg:text-sm text-2xl">65</span></div>
+            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold lg:text-sm text-xl">HP</span><span class="h-3 rounded-full bg-ground"><span style="width: 0%;" id="detail-hp-bar" class=" block h-3 rounded-full bg-[#22C55E]"></span></span><span id="detail-hp" class="text-right font-mono lg:text-sm text-2xl">45</span></div>
+            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold lg:text-sm text-xl">Attaque</span><span class="h-3 rounded-full bg-ground"><span style="width: 0%;" id="detail-attack-bar" class="block h-3 rounded-full bg-[#EF4444]"></span></span><span id="detail-attack" class=" text-right font-mono lg:text-sm text-2xl">49</span></div>
+            <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold lg:text-sm text-xl">Défense</span><span class="h-3 rounded-full bg-ground"><span style="width: 0%;" id="detail-defence-bar" class=" block h-3 rounded-full bg-[#3B82F6]"></span></span><span id="detail-defence" class=" text-right font-mono lg:text-sm text-2xl">65</span></div>
           </div>
-          <button type="button" class="flex justify-center items-center border-black border-2 p-6 bg-amber-400 h-9 lg:text-sm text-2xl rounded-xl">Ajouter à l'équipe</button>
-        </section>
+          <button id="detail-ajouter" type="button" class="flex justify-center items-center border-black border-2 p-6 bg-amber-400 h-9 lg:text-sm text-2xl rounded-xl">Ajouter à l'équipe</button>
+        </div></section>
 
         <!-- ===================== MON ÉQUIPE (INCOMPLÈTE) ===================== -->
-        <section id="team" aria-label="Mon équipe" class="rounded-cardb bg-white p-6 h-[740px] overflow-y-auto">
+        <section id="team" aria-label="Mon équipe" class="rounded-cardb rounded-3xl bg-white p-6 h-[740px] overflow-y-auto">
           <h2 class="font-display lg:text-2xl  text-3xl font-extrabold">Mon équipe</h2>
           <!-- TODO (Partie 1) : terminez cette section en suivant la maquette :
                compteur x/6, 6 emplacements (vides ou remplis), message de règles. -->
-               <div class="flex flex-col gap-3 rounded-cardb bg-white p-3 pb-4">
-                <div class="relative flex  items-center justify-center rounded-xl bg-white">
-                  <img src="/images/dark.png" alt="" class="w-32">
+            <div class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
+                <div class="relative flex lg:h-36 md:h-60 items-center justify-center rounded-xl bg-brand-light">
+            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
             <span class="absolute left-3 top-2 font-mono lg:text-sm text-xl text-muted">#006</span>
           </div>
           <div class="flex items-center justify-between gap-2">
             <h3 class="font-display text-3xl lg:text-xl font-semibold">Duskwing</h3>
             <span class="rounded-full bg-brand-light px-3 py-1 lg:text-sm text-xl font-bold text-ink">Ténèbres</span>
           </div>
-          
+          <p class="text-xl lg:text-sm text-muted ">Niveau 2 · Total 525</p>
+           
           <button type="button" class="btn-outline md:text-xl sm:text-xl text-red-600 flex items-center justify-center border-red-600 border-4">retrait de l'équipe</button>
                </div>
-                  <div class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
-                <div class="relative flex lg:h-36 md:h-60 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
-            <span class="absolute left-3 top-2 font-mono lg:text-sm text-xl text-muted">#006</span>
-          </div>
-          <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-3xl lg:text-xl font-semibold">Duskwing</h3>
-            <span class="rounded-full bg-brand-light px-3 py-1 lg:text-sm text-xl font-bold text-ink">Ténèbres</span>
-          </div>
-          <p class="text-xl lg:text-sm text-muted ">Niveau 2 · Total 525</p>
-          <button type="button" class="btn-outline md:text-xl sm:text-xl">retrait de l'équipe</button>
-               </div>
-                  <div class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
-                <div class="relative flex lg:h-36 md:h-60 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
-            <span class="absolute left-3 top-2 font-mono lg:text-sm text-xl text-muted">#006</span>
-          </div>
-          <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-3xl lg:text-xl font-semibold">Duskwing</h3>
-            <span class="rounded-full bg-brand-light px-3 py-1 lg:text-sm text-xl font-bold text-ink">Ténèbres</span>
-          </div>
-          <p class="text-xl lg:text-sm text-muted ">Niveau 2 · Total 525</p>
-          <button type="button" class="btn-outline md:text-xl sm:text-xl">retrait de l'équipe</button>
-               </div>
-                  <div class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
-                <div class="relative flex lg:h-36 md:h-60 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
-            <span class="absolute left-3 top-2 font-mono lg:text-sm text-xl text-muted">#006</span>
-          </div>
-          <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-3xl lg:text-xl font-semibold">Duskwing</h3>
-            <span class="rounded-full bg-brand-light px-3 py-1 lg:text-sm text-xl font-bold text-ink">Ténèbres</span>
-          </div>
-          <p class="text-xl lg:text-sm text-muted ">Niveau 2 · Total 525</p>
-          <button type="button" class="btn-outline md:text-xl sm:text-xl">retrait de l'équipe</button>
-               </div>
-                  <div class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
-                <div class="relative flex lg:h-36 md:h-60 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
-            <span class="absolute left-3 top-2 font-mono lg:text-sm text-xl text-muted">#006</span>
-          </div>
-          <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-3xl lg:text-xl font-semibold">Duskwing</h3>
-            <span class="rounded-full bg-brand-light px-3 py-1 lg:text-sm text-xl font-bold text-ink">Ténèbres</span>
-          </div>
-          <p class="text-xl lg:text-sm text-muted ">Niveau 2 · Total 525</p>
-          <button type="button" class="btn-outline md:text-xl sm:text-xl">retrait de l'équipe</button>
-               </div>
-                  <div class="flex flex-col gap-3 rounded-card bg-white p-3 pb-4">
-                <div class="relative flex lg:h-36 md:h-60 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7 7 5 3M17 7l2-4"></path></svg>
-            <span class="absolute left-3 top-2 font-mono lg:text-sm text-xl text-muted">#006</span>
-          </div>
-          <div class="flex items-center justify-between gap-2">
-            <h3 class="font-display text-3xl lg:text-xl font-semibold">Duskwing</h3>
-            <span class="rounded-full bg-brand-light px-3 py-1 lg:text-sm text-xl font-bold text-ink">Ténèbres</span>
-          </div>
-          <p class="text-xl lg:text-sm text-muted ">Niveau 2 · Total 525</p>
-          <button type="button" class="btn-outline md:text-xl sm:text-xl">retrait de l'équipe</button>
-               </div>
-               
+          
+   
         </section>
 
       </aside>
